@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+  
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #ccdff2;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    overflow-y: hidden;
+}
+
+h1 {
+    letter-spacing: 2px; 
+}
+
+.main-title {
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Kaushan Script', cursive;
+    color: #024ae4;
+    text-shadow: 2px 2px 5px #4c9ad7;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.drag-container {
+    margin: 20px;
+}
+
+.drag-list {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Columns*/
+
+.drag-column {
+    flex: 1;
+    margin: 0 10px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.backlog-column .header,
+.backlog-column .solid,
+.backlog-column .solid:hover,
+.to-do-column .header,
+.to-do-column .solid,
+.to-do-column .solid:hover,
+.doing-column .header,
+.doing-column .solid,
+.doing-column .solid:hover,
+.done-column .header,
+.done-column .solid,
+.done-column .solid:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.backlog-column {
+    background-color: #a10634;
+}
+
+.to-do-column {
+    background-color: #3b82f6;
+}
+
+.doing-column {
+    background-color: #5c09a0;
+}
+
+.done-column {
+    background-color: #14b635;
+}
+
+.custom-scroll {
+    overflow-y: auto;
+    max-height: 52vh;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-right: 5px;
+}
+
+.custom-scroll::-webkit-scrollbar{
+    width: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.header h1 {
+    font-size: 1.25rem;
+}
+
+/* Drag and Drop */
+.over {
+    padding: 50px 10px;
+}
+
+.drag-item-list {
+    min-height: 50px;
+}
+
+.drag-item {
+    margin: 10px;
+    padding: 10px;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    line-height: 1.5rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.backlog-column .drag-item {
+    background-color: #a10634;
+}
+
+.to-do-column .drag-item {
+    background-color: #3b82f6;
+}
+
+.doing-column .drag-item {
+    background-color: #5c09a0;
+}
+
+.done-column .drag-item {
+    background-color: #14b635;
+}
+
+.drag-item:focus {
+    outline: none;
+    background-color: #fff;
+    color: #000;
+}
+
+/* Add Button Group */
+.add-btn-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-btn {
+    margin: 10px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: fit-content;
+    border-radius: 5px;
+    transition: all .3s ease-in;
+    user-select: none;
+}
+
+.add-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+}
+
+.add-btn:active {
+    transform: scale(0.97);
+}
+
+.solid {
+    display: none;
+}
+
+.solid:hover {
+    transition: unset;
+    filter: brightness(95%);
+    color: #fff;
+}
+
+.plus-sign {
+    font-size: 1.5rem;
+    margin-right: 5px;
+    position: relative;
+    top: -3px;
+}
+
+.add-container {
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 100px;
+    display: none;
+}
+
+.add-item {
+    width: 100%;
+    min-height: 100px;
+    border-radius: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 5px auto;
+    resize: none;
+    color: #000;
+    padding: 10px;
+}
+
+.add-item:focus {
+    outline: none;
+}
+
+/* Media Query: Large smartphone*/
+@media screen and (max-width: 600px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .drag-container {
+        margin: 0;
+    }
+    .drag-list {
+        display: block;
+    }
+    .drag-column {
+        margin: 10px;
+    }
+}

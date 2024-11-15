@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kanban Board</title>
+</head>
+<body>
+    <h1 class="main-title">KANBAN BOARD</h1>
+    <div class="drag-container">
+        <ul class="drag-list">
+            <!-- Backlog Column -->
+            <li class="drag-column backlog-column">
+                <span class="header">
+                    <h1>BACKLOG</h1>
+                </span>
+                <div id="backlog-content" class="custom-scroll">
+                    <ul
+                    class="drag-item-list"
+                    id="backlog-list"
+                    ondrop="drop(event)"
+                    ondragover="allowDrop(event)"
+                    ondragenter="dragEnter(0)">
+                    </ul>
+                </div>
+                <div class="add-btn-group">
+                    <div class="add-btn" onclick="showInputBox(0)">
+                      <span class="plus-sign">+</span>
+                      <span>Add Item</span>
+                    </div>
+                    <div class="add-btn solid" onclick="hideInputBox(0)">
+                        <span>Save Item</span>
+                    </div>
+                </div>
+                <div class="add-container">
+                    <input class="add-item" type="text" id="backlog-input" placeholder="Enter task">
+                </div>
+            </li>
+
+            <!-- To Do Column -->
+            <li class="drag-column to-do-column">
+                <span class="header">
+                    <h1>TO DO</h1>
+                </span>
+                <div id="to-do-content" class="custom-scroll">
+                    <ul
+                    class="drag-item-list"
+                    id="to-do-list"
+                    ondrop="drop(event)"
+                    ondragover="allowDrop(event)"
+                    ondragenter="dragEnter(1)">
+                    </ul>
+                </div>
+                <div class="add-btn-group">
+                    <div class="add-btn" onclick="showInputBox(1)">
+                      <span class="plus-sign">+</span>
+                      <span>Add Item</span>
+                    </div>
+                    <div class="add-btn solid" onclick="hideInputBox(1)">
+                        <span>Save Item</span>
+                    </div>
+                </div>
+                <div class="add-container">
+                    <input class="add-item" type="text" id="to-do-input" placeholder="Enter task">
+                </div>
+            </li>
+
+            <!-- Doing Column -->
+            <li class="drag-column doing-column">
+                <span class="header">
+                    <h1>DOING</h1>
+                </span>
+                <div id="doing" class="custom-scroll">
+                    <ul
+                    class="drag-item-list"
+                    id="doing-list"
+                    ondrop="drop(event)"
+                    ondragover="allowDrop(event)"
+                    ondragenter="dragEnter(2)">
+                    </ul>
+                </div>
+                <div class="add-btn-group">
+                    <div class="add-btn" onclick="showInputBox(2)">
+                      <span class="plus-sign">+</span>
+                      <span>Add Item</span>
+                    </div>
+                    <div class="add-btn solid" onclick="hideInputBox(2)">
+                        <span>Save Item</span>
+                    </div>
+                </div>
+                <div class="add-container">
+                    <input class="add-item" type="text" id="doing-input" placeholder="Enter task">
+                </div>
+            </li>
+
+            <!-- Done Column -->
+            <li class="drag-column done-column">
+                <span class="header">
+                    <h1>DONE</h1>
+                </span>
+                <div id="done-content" class="custom-scroll">
+                    <ul
+                    class="drag-item-list"
+                    id="done-list"
+                    ondrop="drop(event)"
+                    ondragover="allowDrop(event)"
+                    ondragenter="dragEnter(3)">
+                    </ul>
+                </div>
+                <div class="add-btn-group">
+                    <div class="add-btn" onclick="showInputBox(3)">
+                      <span class="plus-sign">+</span>
+                      <span>Add Item</span>
+                    </div>
+                    <div class="add-btn solid" onclick="hideInputBox(3)">
+                        <span>Save Item</span>
+                    </div>
+                </div>
+                <div class="add-container">
+                    <input class="add-item" type="text" id="done-input" placeholder="Enter task">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
